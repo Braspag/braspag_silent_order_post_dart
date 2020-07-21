@@ -1,0 +1,1 @@
+enum SilentOrderPostEnviroment { SANDBOX, PRODUCAO }
