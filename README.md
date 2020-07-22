@@ -20,7 +20,7 @@ Esse método possibilita o envio dos dados do pagamento do seu cliente de forma 
 Para iniciar com o SDK será necessário importar o pacote abaixo.
 
 ```dart
-import 'package:braspag_silent_order_post_dart/braspag_silent_order_post_dart.dart';
+import 'package:braspag_silent_order_post_dart/silent_order_post.dart';
 ```
 
 Será necessário também informar *Merchant Id* e o *Ambiente*:
@@ -66,16 +66,15 @@ var response = await sop.sendCardData(
 
 ### Detalhamento Retorno de Erro
 
-No caso de erro será retornado um objeto do tipo **SilentOrderPostException**. 
+No caso de erro será retornado um objeto do tipo **ErrorResponse**. 
 No exemplo abaixo foi capturado usando um FutureBuilder ou StreamBuilder:
 
 ```dart
 ...
 if (snapshot.hasError) {
-                    SilentOrderPostException errors = snapshot.error;
-                    print('StatusCode: ${errors.statusCode}, '
-                        'Message: ${errors.silentOrderPostError.message}, '
-                        'Description: ${errors.silentOrderPostError.modelState.request}');
+                    ErrorResponse errors = snapshot.error;
+                    print('StatusCode: ${errors.code}, '
+                        'Message: ${errors.message} ');
                     return Container();
                     }
 ...
