@@ -1,4 +1,4 @@
-import 'package:braspag_silent_order_post_dart/braspag_silent_order_post_dart.dart';
+import 'package:braspag_silent_order_post_dart/silent_order_post.dart';
 import 'package:braspag_silent_order_post_dart/src/models/SilentOrderPostRequest.dart';
 import 'package:braspag_silent_order_post_dart/src/models/SilentOrderPostResponse.dart';
 import 'package:braspag_silent_order_post_dart/src/network/SilentOrderPostClient.dart';

@@ -35,7 +35,7 @@ packages:
       path: "/Users/felipe/Desktop/braspag_silent_order_post_dart"
       relative: false
     source: path
-    version: "0.0.1"
+    version: "1.0.0"
   charcode:
     dependency: transitive
     description:

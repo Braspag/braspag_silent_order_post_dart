@@ -1,4 +1,4 @@
-import 'package:braspag_silent_order_post_dart/braspag_silent_order_post_dart.dart';
+import 'package:braspag_silent_order_post_dart/silent_order_post.dart';
 import 'package:braspag_silent_order_post_dart/src/models/SilentOrderPostError.dart';
 import 'package:braspag_silent_order_post_dart/src/models/SilentOrderPostRequest.dart';
 import 'package:braspag_silent_order_post_dart/src/models/SilentOrderPostResponse.dart';
@@ -56,7 +56,7 @@ _getErrorSilentOrderPost(DioError e) {
           ? "${e.response.statusCode} ${e.response.statusMessage}"
           : "Unknown Error";
 
-      throw SilentOrderPostException(message, silentOrderPostError);
+      throw ErrorResponse(message, silentOrderPostError.modelState.request);
     } else {
       var silentOrderPostError = SilentOrderPostError(
           message: "", modelState: ModelState(request: ""));
@@ -64,10 +64,9 @@ _getErrorSilentOrderPost(DioError e) {
           ? "${e.response.statusCode} ${e.response.statusMessage}"
           : "Unknown Error";
 
-      throw SilentOrderPostException(message, silentOrderPostError);
+      throw ErrorResponse(message, "null");
     }
   } else {
-    throw SilentOrderPostException("Unknown Error",
-        SilentOrderPostError(modelState: ModelState(request: "Unknown Error")));
+    throw ErrorResponse("Unknown Error", "Unknown Error");
   }
 }

@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:braspag_silent_order_post_dart/braspag_silent_order_post_dart.dart';
+import 'package:braspag_silent_order_post_dart/silent_order_post.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -50,10 +50,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     );
                   if (snapshot.hasError) {
-                    SilentOrderPostException errors = snapshot.error;
-                    print('Errors =>  StatusCode: ${errors.statusCode}, '
-                        'Message: ${errors.silentOrderPostError.message}, '
-                        'Description: ${errors.silentOrderPostError.modelState.request}');
+                    ErrorResponse errors = snapshot.error;
+                    print('Errors =>  StatusCode: ${errors.code}, '
+                        'Description: ${errors.message}');
                     return Container();
                   } else
                     return Center(

@@ -1,6 +1,5 @@
-import 'package:braspag_silent_order_post_dart/braspag_silent_order_post_dart.dart';
+import 'package:braspag_silent_order_post_dart/silent_order_post.dart';
 import 'package:braspag_silent_order_post_dart/src/models/AccessTokenResponse.dart';
-import 'package:braspag_silent_order_post_dart/src/models/SilentOrderPostError.dart';
 import 'package:dio/dio.dart';
 
 class AccessTokenClient {
@@ -28,10 +27,8 @@ _getErrorAccessToken(DioError e) {
     var message = e.response.statusCode != null
         ? "${e.response.statusCode} ${e.response.statusMessage}"
         : "Unknown Error";
-    throw SilentOrderPostException(message,
-        SilentOrderPostError(message: "", modelState: ModelState(request: "")));
+    throw ErrorResponse(message, "null");
   } else {
-    throw SilentOrderPostException(e.message,
-        SilentOrderPostError(message: "", modelState: ModelState(request: "")));
+    throw ErrorResponse(e.message, "null");
   }
 }

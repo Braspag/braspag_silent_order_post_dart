@@ -2,7 +2,7 @@ name: braspag_silent_order_post_dart
 description: A new Flutter package project.
 version: 1.0.0
 author: Felipe Toniolo <braspag.sdk@gmail.com>
-           homepage: https://github.com/Braspag/
+homepage: https://github.com/Braspag/
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
