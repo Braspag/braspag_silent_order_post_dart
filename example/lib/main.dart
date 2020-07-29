@@ -97,6 +97,10 @@ class _MyHomePageState extends State<MyHomePage> {
                               ? Text(
                                   'Card Token => : ${snapshot.data.cardToken}')
                               : Text(''),
+                          snapshot.data.paymentToken != null
+                              ? Text(
+                                  'Payment Token => : ${snapshot.data.paymentToken}')
+                              : Text(''),
                         ],
                       ),
                     );
