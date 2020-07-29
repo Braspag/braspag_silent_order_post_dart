@@ -133,6 +133,7 @@ class SilentBloc {
       _streamController.stream.asyncMap((card) => sendCard(card));
 
   Future<SilentOrderPostResponse> sendCard(SilentOrderPostRequest card) async {
+    //TODO PLACE YOUR MERCHANT ID HERE
     var sop = SilentOrderPost(
         merchantId: "Merchant id",
         enviroment: SilentOrderPostEnviroment.SANDBOX);

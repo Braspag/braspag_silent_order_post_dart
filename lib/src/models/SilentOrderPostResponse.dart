@@ -9,6 +9,7 @@ class SilentOrderPostResponse {
   String cardBin;
   String cardLast4Digits;
   String cardToken;
+  String paymentToken;
 
   SilentOrderPostResponse(
       {this.foreignCard,
@@ -20,7 +21,8 @@ class SilentOrderPostResponse {
       this.verifyCardReturnMessage,
       this.cardBin,
       this.cardLast4Digits,
-      this.cardToken});
+      this.cardToken,
+      this.paymentToken});
 
   SilentOrderPostResponse.fromJson(Map<String, dynamic> json) {
     foreignCard = json['ForeignCard'];
@@ -33,6 +35,7 @@ class SilentOrderPostResponse {
     cardBin = json['CardBin'];
     cardLast4Digits = json['CardLast4Digits'];
     cardToken = json['CardToken'];
+    paymentToken = json['PaymentToken'];
   }
 
   Map<String, dynamic> toJson() {
@@ -47,6 +50,7 @@ class SilentOrderPostResponse {
     data['CardBin'] = this.cardBin;
     data['CardLast4Digits'] = this.cardLast4Digits;
     data['CardToken'] = this.cardToken;
+    data['PaymentToken'] = this.paymentToken;
     return data;
   }
 }
