@@ -134,11 +134,11 @@ class SilentBloc {
 
   Future<SilentOrderPostResponse> sendCard(SilentOrderPostRequest card) async {
     var sop = SilentOrderPost(
-        merchantId: "Merchant Id",
+        merchantId: "Merchant id",
         enviroment: SilentOrderPostEnviroment.SANDBOX);
 
-    sop.binQuery = false;
-    sop.verifyCard = false;
+    sop.binQuery = true;
+    sop.verifyCard = true;
     sop.tokenize = true;
 
     return await sop.sendCardData(request: card);

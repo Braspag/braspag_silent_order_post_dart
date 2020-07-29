@@ -47,26 +47,17 @@ class SilentOrderPostClient {
 }
 
 _getErrorSilentOrderPost(DioError e) {
-  if (e.response != null) {
-    if (e.response.data != "") {
-      Map<String, dynamic> map = e.response.data;
-      SilentOrderPostError silentOrderPostError =
-          SilentOrderPostError.fromJson(map);
-      var message = e.response.statusCode != null
-          ? "${e.response.statusCode} ${e.response.statusMessage}"
-          : "Unknown Error";
+  if (e.response != null && e.response.data != "") {
+    Map<String, dynamic> map = e.response.data;
+    SilentOrderPostError silentOrderPostError =
+        SilentOrderPostError.fromJson(map);
 
-      throw ErrorResponse(message, silentOrderPostError.modelState.request);
-    } else {
-      var silentOrderPostError = SilentOrderPostError(
-          message: "", modelState: ModelState(request: ""));
-      var message = e.response.statusCode != null
-          ? "${e.response.statusCode} ${e.response.statusMessage}"
-          : "Unknown Error";
+    var message = "${e.response.statusCode} ${e.response.statusMessage}";
 
-      throw ErrorResponse(message, "null");
-    }
+    throw ErrorResponse(message, silentOrderPostError.modelState.request);
   } else {
-    throw ErrorResponse("Unknown Error", "Unknown Error");
+    var message = "${e.response.statusCode} ${e.response.statusMessage}";
+
+    throw ErrorResponse(message, e.response.statusMessage);
   }
 }

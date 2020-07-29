@@ -27,7 +27,7 @@ _getErrorAccessToken(DioError e) {
     var message = e.response.statusCode != null
         ? "${e.response.statusCode} ${e.response.statusMessage}"
         : "Unknown Error";
-    throw ErrorResponse(message, "null");
+    throw ErrorResponse(message, e.response.statusMessage);
   } else {
     throw ErrorResponse(e.message, "null");
   }
